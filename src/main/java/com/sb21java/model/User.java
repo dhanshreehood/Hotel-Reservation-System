@@ -3,26 +3,33 @@ package com.sb21java.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-public class User {
-	@Entity
-	@Table(name ="User")
-	public class Employee {
-		
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
+@Entity
+@Table(name ="users")
+public class User{		
 		@Id
-		@GeneratedValue
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int userId;
 		
 		@Column(nullable = false, length=50)
 		private String username;
 		
 		@Column(nullable = false, length=50)
-		private String Password;
+		private String password;
 		
 		@Column(nullable = false, length=20)
-		private String Role;
+		private String role;
 
 		public int getUserId() {
 			return userId;
@@ -41,25 +48,25 @@ public class User {
 		}
 
 		public String getPassword() {
-			return Password;
+			return password;
 		}
 
 		public void setPassword(String password) {
-			Password = password;
+			this.password = password;
 		}
 
 		public String getRole() {
-			return Role;
+			return role;
 		}
 
 		public void setRole(String role) {
-			Role = role;
+			this.role = role;
 		}
 
 		@Override
 		public String toString() {
-			return "Employee [userId=" + userId + ", username=" + username + ", Password=" + Password + ", Role=" + Role
+			return "User [userId=" + userId + ", username=" + username + ", password=" + password + ", role=" + role
 					+ "]";
 		}
-}
+
 }

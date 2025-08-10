@@ -8,11 +8,11 @@
 		<version>4.0.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.dhanshree</groupId>
-	<artifactId>springboot21java</artifactId>
+	<groupId>com.sb21java</groupId>
+	<artifactId>HotelReservationSystem</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>HotelReservationSystem</name>
-	<description>HotelReservationSystem</description>
+	<description>Hotel Reservation System springboot crud operation test by using java 21</description>
 	<url/>
 	<licenses>
 		<license/>
