@@ -17,7 +17,6 @@ import com.sb21java.repository.EmployeeRepository;
 import com.sb21java.service.EmployeeService;
 
 
-
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
@@ -46,6 +45,4 @@ public class EmployeeController {
 		return new ResponseEntity<Employee>(registrationBean,HttpStatus.OK);
 	} 
 	
-	
-
 }
