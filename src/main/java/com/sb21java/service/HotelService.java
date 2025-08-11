@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sb21java.exception.InvalidInputException;
 import com.sb21java.model.Hotel;
 import com.sb21java.repository.HotelRepository;
 
@@ -54,5 +55,23 @@ public class HotelService {
 				hotelBean.setDescription(hotel.getDescription());
 				
 		return hotelRepo.save(hotelBean);
+	}
+	
+	//search hotel by name and city
+	public List<Hotel> searchHotels(String city, String name) {
+	    boolean hasCity = city != null && !city.trim().isEmpty();
+	    boolean hasName = name != null && !name.trim().isEmpty();
+
+	    if (!hasCity && !hasName) {
+	        throw new InvalidInputException("At least one search parameter (city or name) is required");
+	    }
+
+	    if (hasCity && hasName) {
+	        return hotelRepo.findByCity(city.trim(), name.trim());
+	    } else if (hasCity) {
+	        return hotelRepo.findByCity(city.trim());
+	    } else {
+	        return hotelRepo.findByName(name.trim());
+	    }
 	}
 }

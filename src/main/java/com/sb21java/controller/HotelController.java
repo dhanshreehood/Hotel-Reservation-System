@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sb21java.model.Hotel;
@@ -56,6 +57,16 @@ public class HotelController {
 	{
 		hotelService.updateHotelById(id,hotel);
 		return new ResponseEntity<String>("Hotel Updated Successfully",HttpStatus.CREATED);
+	}
+	
+	//search hotel by name and city
+	@GetMapping("/search")
+	public ResponseEntity<List<Hotel>> searchHotels(
+	        @RequestParam(required = false) String city,
+	        @RequestParam(required = false) String name) {
+	    
+	    List<Hotel> results = hotelService.searchHotels(city, name);
+	    return new ResponseEntity<>(results, HttpStatus.OK);
 	}
 	
 }

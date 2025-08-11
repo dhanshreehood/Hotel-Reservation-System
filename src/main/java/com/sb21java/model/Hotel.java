@@ -39,12 +39,12 @@ public class Hotel {
     private int availableRooms;
 
     @Column(nullable = false)
-    private int pricePerNight;
+    private Double pricePerNight;
 
     @Column(length = 500)
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_owner_id", nullable = false)
     private User hotelOwner;
 
@@ -80,11 +80,11 @@ public class Hotel {
 		this.availableRooms = availableRooms;
 	}
 
-	public int getPricePerNight() {
+	public Double getPricePerNight() {
 		return pricePerNight;
 	}
 
-	public void setPricePerNight(int pricePerNight) {
+	public void setPricePerNight(Double pricePerNight) {
 		this.pricePerNight = pricePerNight;
 	}
 
@@ -109,5 +109,5 @@ public class Hotel {
 		return "Hotel [hotelId=" + hotelId + ", name=" + name + ", city=" + city + ", availableRooms=" + availableRooms
 				+ ", pricePerNight=" + pricePerNight + ", description=" + description + ", hotelOwner=" + hotelOwner
 				+ "]";
-	}	
+	}
 }

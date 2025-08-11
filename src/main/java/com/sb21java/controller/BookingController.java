@@ -28,7 +28,7 @@ public class BookingController {
 	public ResponseEntity<String> addBooking(@RequestBody Booking eventBean)
 	{
 		Booking bookingBean = bookingService.addBooking(eventBean);
-		return new ResponseEntity<String>("Event Added Successfully!!",HttpStatus.CREATED);
+		return new ResponseEntity<String>("Booking Added Successfully!!",HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/")
